@@ -198,5 +198,63 @@ grid-area: titulo;
     background: var(--color-primario);
     width: 100%;
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas: 
+    ". . . . . . ."
+    ". . . . . . ."
+    ". img img . primerT . ."
+    ". img img . segundoT segundoT ."
+    ". img img . textab textab ."
+    ". img img . boton . ."
+    ". . . . . . ."
+    ". . . . . . ."
+    ;
 }
 
+.item_about__image{
+    /*background: red;*/
+    grid-area: img;
+}
+
+.image_about{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item_about__firstT{
+    background: yellow;
+    grid-area: primerT;
+}
+
+.about_firstT{
+    background: red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.firstT__about{
+    font-size: .95em;
+    text-transform: capitalize;
+}
+
+.item_about__secondT{
+    background: lightblue;
+    grid-area: segundoT;
+}
+
+
+.item_about__text{
+    background: lightgreen;
+    grid-area: textab;
+}
+
+.item_about__button{
+    background: lightpink;
+    grid-area: boton;
+}
