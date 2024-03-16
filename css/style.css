@@ -1,7 +1,79 @@
 @import url(variables.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Popsins', sans-serif;
+}
+
+body{
+    background-color: var(--color-primario);
+}
+
+.container_header{
+    background: var(--color-secundario);
+    width: 100%;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas: 
+    "headerL . . . . headerR headerR headerR"
+    ;
+}
+
+.item_header__left{
+    /*background: violet;*/
+    grid-area: headerL;
+}
+
+.header_left{
+    color: var(--color-terciario);
+    width: 100%;
+    height: 100%;
+    font-size: 1.8em;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_header__right{
+    /*background: blue;*/
+    grid-area: headerR;
+}
+
+.header_right{
+    width: 100%;
+    height: 10vh;
+    /*background: yellow;*/
+}
+
+.header_list{
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    gap: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_button{
+    background: var(--color-secundario);
+    color: var(--color-primario);
+    border: none;
+    width: 8.5vh;
+    height: 3vh;
+    font-size: 1.2em;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.header_button:hover{
+    border: 1px solid var(--color-primario);
+    color: var(--color-terciario);
 }
