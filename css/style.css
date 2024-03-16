@@ -9,18 +9,18 @@
 }
 
 body{
-    background-color: var(--color-primario);
+    background-color: var(--color-secundario);
 }
 
 .container_header{
-    background: var(--color-secundario);
+    /*background: blueviolet;*/
     width: 100%;
-    height: 10vh;
+    height: 13vh;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-template-areas: 
-    "headerL . . . . headerR headerR headerR"
+    "headerL . . . headerR headerR headerR headerR"
     ;
 }
 
@@ -33,7 +33,8 @@ body{
     color: var(--color-terciario);
     width: 100%;
     height: 100%;
-    font-size: 1.8em;
+    padding: 0em 3em;
+    font-size: 2.5em;
     text-transform: capitalize;
     display: flex;
     justify-content: center;
@@ -46,18 +47,20 @@ body{
 }
 
 .header_right{
-    width: 100%;
-    height: 10vh;
     /*background: yellow;*/
+    width: 100%;
+    height: 13vh;
 }
 
 .header_list{
+    /*background: teal;*/
     width: 100%;
     height: 100%;
+    padding: 0em 3em;
     list-style: none;
-    gap: 4em;
+    gap: 3em;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
@@ -65,9 +68,9 @@ body{
     background: var(--color-secundario);
     color: var(--color-primario);
     border: none;
-    width: 8.5vh;
-    height: 3vh;
-    font-size: 1.2em;
+    width: 10em;
+    height: 4vh;
+    font-size: 1.27em;
     text-decoration: none;
     text-transform: capitalize;
     cursor: pointer;
@@ -77,3 +80,123 @@ body{
     border: 1px solid var(--color-primario);
     color: var(--color-terciario);
 }
+
+.main{
+    width: 100%;
+    height: 90vh;
+}
+
+.container_main{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas: 
+    ". . . . . . ."
+    ". . . . imagen imagen ."
+    ". titulo titulo titulo imagen imagen ."
+    ". texto texto . imagen imagen ."
+    ". boton boton . imagen imagen ."
+    ". . . . imagen imagen ."
+    ". . . . . . ."
+    ;
+}
+
+.item_main__title{
+/*background: red;*/
+grid-area: titulo;
+}
+
+.main__title{
+    /*background: darkgray;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_main{
+    color: var(--color-terciario);
+    padding: 0em 1em;
+    font-size: 5em;
+    letter-spacing: .05em;
+    text-transform: capitalize;
+}
+
+.item_main__text{
+    /*background: blanchedalmond;*/
+    grid-area: texto;
+}
+
+.main__text{
+    /*background: red;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.text_main{
+    color: var(--color-primario);
+    padding: 0em 4.4em;
+    font-size: 1.7em;
+}
+
+.text_bigger{
+    text-transform: capitalize;
+}
+
+.item_main__button{
+    /*background: lightpink;*/
+    grid-area: boton;
+}
+
+.main__button{
+    /*background: lightseagreen;*/
+    width: 100%;
+    height: 100%;
+    padding: 0px 7.5em;
+    display: flex;
+    align-items: center;
+}
+
+.button_main{
+    background: var(--color-terciario);
+    color: var(--color-primario);
+    border: 1px solid var(--color-terciario);
+    width: 8em;
+    height: 2.1em;
+    font-size: 1.08em;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: .05em;
+}
+
+.item_main__image{
+    /*background: darkgoldenrod;*/
+    grid-area: imagen;
+    display: flex;
+    align-items: center;
+}
+
+.main__image{
+    /*background: yellow;*/
+    width: 100%;
+    height: 100%;
+}
+
+.main__image .image_home{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.container_about{
+    background: var(--color-primario);
+    width: 100%;
+    height: 100vh;
+}
+
