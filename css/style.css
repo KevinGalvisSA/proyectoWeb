@@ -173,6 +173,7 @@ grid-area: titulo;
     text-align: center;
     text-transform: capitalize;
     letter-spacing: .05em;
+    cursor: pointer;
 }
 
 .item_main__image{
@@ -195,7 +196,7 @@ grid-area: titulo;
 }
 
 .container_about{
-    background: var(--color-primario);
+    background: var(--color-secundario);
     width: 100%;
     height: 100vh;
     display: grid;
@@ -225,36 +226,416 @@ grid-area: titulo;
 }
 
 .item_about__firstT{
-    background: yellow;
+    /*background: yellow;*/
     grid-area: primerT;
+    padding: 10px 0px;
 }
 
 .about_firstT{
-    background: red;
+    /*background: red;*/
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: stretch;
-    align-items: center;
+    align-items: end;
 }
 
 .firstT__about{
+    color: var(--color-terciario);
     font-size: .95em;
     text-transform: capitalize;
 }
 
 .item_about__secondT{
-    background: lightblue;
+    /*background: lightblue;*/
     grid-area: segundoT;
 }
 
+.secondT__about{
+    color: var(--color-primario);
+    font-size: 2.4em;
+}
+
+.bigger_secondT{
+    text-transform: capitalize;
+}
 
 .item_about__text{
-    background: lightgreen;
+    /*background: lightgreen;*/
     grid-area: textab;
+    padding: 10px 0px;
+}
+
+.about_text{
+    color: var(--color-primario);
+    width: 100%;
+    height: 100%;
+    letter-spacing: .02em;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
 }
 
 .item_about__button{
-    background: lightpink;
+    /*background: lightpink;*/
     grid-area: boton;
+}
+
+.about__button{
+    /*background: lightseagreen;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 5px 0px;
+}
+
+.button_about{
+    background: var(--color-terciario);
+    color: var(--color-primario);
+    border: 1px solid var(--color-terciario);
+    width: 8em;
+    height: 2.1em;
+    font-size: 1.08em;
+    text-transform: capitalize;
+    letter-spacing: .05em;
+    cursor: pointer;
+}
+
+.container_menu{
+    background: var(--color-secundario);
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas: 
+    ". . . . . . . . . ."
+    ". . . . primerT primerT . . . ."
+    ". . segunT segunT segunT segunT segunT segunT . ."
+    ". . . . . . . . . ."
+    ". primeraimg primeraimg primeraimg segundaimg segundaimg terceraimg terceraimg terceraimg ."
+    ". primeraimg primeraimg primeraimg segundaimg segundaimg terceraimg terceraimg terceraimg ."
+    ". primeraimg primeraimg primeraimg segundaimg segundaimg terceraimg terceraimg terceraimg ."
+    ". primeraimg primeraimg primeraimg segundaimg segundaimg terceraimg terceraimg terceraimg ."
+    ". . . . . . . . . ."
+    ;
+}
+
+.item_menu__firstT{
+    /*background: red;*/
+    grid-area: primerT;
+}
+
+.menu_firstT{
+    color: var(--color-terciario);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.firstT__menu{
+    text-transform: capitalize;
+}
+
+.item_menu__secondT{
+    /*background: blue;*/
+    grid-area: segunT;
+}
+
+.menu_secondT{
+    color: var(--color-primario);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondT__menu{
+    font-size: 2.5em;
+}
+
+.bigger_menu__secondT{
+    text-transform: capitalize;
+}
+
+.item_menu__firstimg{
+    background: var(--color-secundario);
+    grid-area: primeraimg;
+    display: flex;
+    justify-content: end;
+    padding: 0px 20px;
+}
+
+.menu_firstimg{
+    background: var(--color-cuarto);
+    width: 75%;
+    height: 100%;
+}
+
+.firstimg_icon{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    font-size: 2em;
+}
+
+.bx.bx-loader{
+    background: var(--color-terciario);
+}
+
+.firstimg_img{
+    /*background: red;*/
+    width: 100%;
+    height: 60%;
+}
+
+.menu_image1{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.firstimg_namefood{
+    /*background: lightgreen;*/
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    text-transform: capitalize;
+}
+
+.firstimg_description{
+    /*background: lightpink;*/
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+    letter-spacing: .05em;
+    text-transform: capitalize;
+}
+
+.firstimg_price{
+    /*background: lightskyblue;*/
+    color: var(--color-terciario);
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+    text-transform: capitalize;
+}
+
+.item_menu__secondimg{
+    background: var(--color-cuarto);
+    grid-area: segundaimg;
+}
+
+.menu_secondimg{
+    width: 100%;
+    height: 100%;
+}
+
+.secondimg_icon{
+    display: flex;
+    justify-content: end;
+    font-size: 2em;
+}
+
+.bx.bx-loader{
+    background: var(--color-terciario);
+}
+
+.secondimg_img{
+    /*background: red;*/
+    width: 100%;
+    height: 60%;
+}
+
+.menu_image2{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.secondimg_namefood{
+    /*background: lightgreen;*/
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    text-transform: capitalize;
+}
+
+.secondimg_description{
+    /*background: lightpink;*/
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+    letter-spacing: .05em;
+    text-transform: capitalize;
+}
+
+.secondimg_price{
+    /*background: lightskyblue;*/
+    color: var(--color-terciario);
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+    text-transform: capitalize;
+}
+
+.item_menu__thirdimg{
+    background: var(--color-secundario);
+    grid-area: terceraimg;
+    display: flex;
+    justify-content: stretch;
+    padding: 0px 20px;
+}
+
+.menu_thirdimg{
+    background: var(--color-cuarto);
+    width: 75%;
+    height: 100%;
+}
+
+.thirdimg_icon{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    font-size: 2em;
+}
+
+.bx.bx-loader{
+    background: var(--color-terciario);
+}
+
+.thirdimg_img{
+    /*background: red;*/
+    width: 100%;
+    height: 55%;
+}
+
+.menu_image3{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.thirdimg_namefood{
+    /*background: lightgreen;*/
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 1.1em;
+    text-transform: capitalize;
+}
+
+.thirdimg_description{
+    /*background: lightpink;*/
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+    letter-spacing: .05em;
+    text-transform: capitalize;
+}
+
+.thirdimg_price{
+    /*background: lightskyblue;*/
+    color: var(--color-terciario);
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+    text-transform: capitalize;
+}
+
+.container_services{
+    background: var(--color-secundario);
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    grid-template-areas: 
+    ". . . . . . . . . . . ."
+    ". . . . primerT primerT primerT primerT . . . ."
+    ". . . segunT segunT segunT segunT segunT segunT . . ."
+    ". . . . . . . . . . . ."
+    ". . primeraimg primeraimg . segundaimg segundaimg . terceraimg terceraimg . ."
+    ". . primeraimg primeraimg . segundaimg segundaimg . terceraimg terceraimg . ."
+    ". . title1 title1 . title2 title2 . title3 title3 . ."
+    ". . p1 p1 . p2 p2 . p3 p3 . ."
+    ". . p1 p1 . p2 p2 . p3 p3 . ."
+    ". . p1 p1 . p2 p2 . p3 p3 . ."
+    ". . . . . . . . . . . ."
+    ;
+}
+
+.item_services__firstT{
+    background: red;
+    grid-area: primerT;
+}
+
+.item_services__secondT{
+    background: lightblue;
+    grid-area: segunT;
+}
+
+.item_services__firstimg{
+    background: darkkhaki;
+    grid-area: primeraimg;
+}
+
+.item_services__secondimg{
+    background: lightslategray;
+    grid-area: segundaimg;
+}
+
+.item_services__thirdimg{
+    background: darkturquoise;
+    grid-area: terceraimg;
+}
+
+.item_services__title1{
+    background: lightsalmon;
+    grid-area: title1;
+}
+
+.item_services__title2{
+    background: lightgreen;
+    grid-area: title2;
+}
+
+.item_services__title3{
+    background: lightpink;
+    grid-area: title3;
+}
+
+.parrafo1{
+    background: red;
+    grid-area: p1;
+}
+
+.parrafo2{
+    background: darkolivegreen;
+    grid-area: p2;
+}
+
+.parrafo3{
+    background: lawngreen;
+    grid-area: p3;
 }
