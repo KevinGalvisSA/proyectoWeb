@@ -12,6 +12,12 @@ body{
     background-color: var(--color-secundario);
 }
 
+.header{
+    background: var(--color-secundario);
+    position: sticky;
+    top: 0;
+}
+
 .container_header{
     /*background: blueviolet;*/
     width: 100%;
@@ -20,7 +26,7 @@ body{
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-template-areas: 
-    "headerL . . . headerR headerR headerR headerR"
+    "headerL headerL . . headerR headerR headerR headerR"
     ;
 }
 
@@ -34,7 +40,7 @@ body{
     color: var(--color-terciario);
     width: 100%;
     height: 100%;
-    font-size: 5vh;
+    font-size: 7vh;
     text-transform: capitalize;
     display: flex;
     justify-content: center;
@@ -64,7 +70,7 @@ body{
     align-items: center;
 }
 
-.header_button{
+.header_a{
     background: var(--color-secundario);
     color: var(--color-primario);
     border: none;
@@ -74,16 +80,19 @@ body{
     text-decoration: none;
     text-transform: capitalize;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.header_button:hover{
+.header_a:hover{
     border: 1px solid var(--color-primario);
     color: var(--color-terciario);
 }
 
 .main{
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 }
 
 .container_main{
@@ -110,7 +119,7 @@ grid-area: titulo;
 
 .main__title{
     /*background: darkgray;*/
-    width: 100%;
+    width: 98%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -119,8 +128,7 @@ grid-area: titulo;
 
 .title_main{
     color: var(--color-terciario);
-    padding: 0em 1em;
-    font-size: 10vh;
+    font-size: 12vh;
     letter-spacing: .3vh;
     text-transform: capitalize;
 }
@@ -142,8 +150,8 @@ grid-area: titulo;
 .text_main{
     /*background: red;*/
     color: var(--color-primario);
-    padding: 0vh 13vh;
-    font-size: 3.5vh;
+    padding: 0vh 7vh;
+    font-size: 4vh;
     word-spacing: 7px;
 }
 
@@ -160,7 +168,7 @@ grid-area: titulo;
     /*background: lightseagreen;*/
     width: 100%;
     height: 100%;
-    padding: 0px 13vh;
+    padding: 0px 7vh;
     display: flex;
     align-items: center;
 }
@@ -169,9 +177,9 @@ grid-area: titulo;
     background: var(--color-terciario);
     color: var(--color-primario);
     border: 1px solid var(--color-terciario);
-    width: 18vh;
-    height: 5vh;
-    font-size: 2.2vh;
+    width: 20vh;
+    height: 6vh;
+    font-size: 2.5vh;
     text-align: center;
     text-transform: capitalize;
     letter-spacing: .05em;
@@ -826,6 +834,7 @@ grid-area: titulo;
     /*background: red;*/
     width: 100%;
     height: 50vh;
+    padding: 12vh 0vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -838,7 +847,7 @@ grid-area: titulo;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     font-size: 6vh;
     gap: 2.5vh;
     word-spacing: 1vh;
@@ -861,4 +870,72 @@ grid-area: titulo;
     text-transform: capitalize;
     letter-spacing: .2vh;
     cursor: pointer;
+}
+
+.container_footer{
+    /*background: yellow;*/
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footer_line{
+    color: var(--color-terciario);
+}
+
+.links_title, .footer_line{
+    line-height: 2.2vh;
+}
+
+.list_option{
+    color: var(--color-primario);
+    list-style: none;
+    font-size: 2.3vh;
+    line-height: 3vh;
+    text-transform: capitalize;
+}
+
+.links_title, .ourservice_title, .information_title, .contact_title{
+    color: var(--color-primario);
+    font-size: 2.7vh;
+    text-transform: capitalize;
+}
+
+.footer_line{
+    color: var(--color-terciario);
+}
+
+.links_title, .footer_line{
+    line-height: 2.2vh;
+}
+
+.list_option{
+    color: var(--color-primario);
+    list-style: none;
+    font-size: 2.3vh;
+    line-height: 3vh;
+    text-transform: capitalize;
+}
+
+.footer__information{
+    /*background: red;*/
+    width: 100%;
+    height: 20vh;
+}
+
+.footer__contact{
+    /*background: yellow;*/
+    width: 100%;
+    height: 20vh;
+}
+
+.icons_list{
+    list-style: none;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

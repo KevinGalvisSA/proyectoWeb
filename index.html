@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container_header">
             <section class="item_header__left">
                 <article class="header_left">
@@ -18,18 +18,18 @@
             <section class="item_header__right">
                 <article class="header_right">
                     <ul class="header_list">
-                        <button class="header_button"><li class="header_li">home</li></button>
-                        <button class="header_button"><li class="header_li">about</li></button>
-                        <button class="header_button"><li class="header_li">menu</li></button>
-                        <button class="header_button"><li class="header_li">service</li></button>
-                        <button  class="header_button"><li class="header_li">contact</li></button>
+                        <a href="#home" class="header_a"><li class="header_li">home</li></a>
+                        <a href="#about" class="header_a"><li class="header_li">about</li></a>
+                        <a href="#menu" class="header_a"><li class="header_li">menu</li></a>
+                        <a href="#services" class="header_a"><li class="header_li">service</li></a>
+                        <a href="#bottom" class="header_a"><li class="header_li">contact</li></a>
                     </ul>
                 </article>
             </section>
         </div>
     </header>
     <main class="main">
-        <section class="container_main">
+        <section class="container_main" id="home">
             <section class="item_main__title">
                 <article class="main__title">
                     <h1 class="title_main">full website</h1>
@@ -52,7 +52,7 @@
             </section>
         </section>
     </main>
-    <section class="container_about">
+    <section class="container_about" id="about">
         <section class="item_about__image">
             <article class="about__image">
                 <img src="/storage/img/about.png" class="image_about">
@@ -79,7 +79,7 @@
             </article>
         </section>
     </section>
-    <section class="container_menu">
+    <section class="container_menu" id="menu">
         <section class="item_menu__firstT">
             <article class="menu_firstT">
                 <h4 class="firstT__menu">food menu</h4>
@@ -148,7 +148,7 @@
         </article>
         </section>
     </section>
-    <section class="container_services">
+    <section class="container_services" id="services">
         <section class="item_services__firstT">
             <article class="services_firstT">
                 <h4 class="firstT__services">services</h4>
@@ -211,7 +211,7 @@
             </article>
         </section>
     </section>
-    <section class="container_bottom">
+    <section class="container_bottom" id="bottom">
         <section class="item_bottom__caja">
             <article class="bottom__caja">
                 <h1 class="bottom_text">we make quality food <br> everyday</h1>
@@ -221,6 +221,60 @@
             </article>
         </section>
     </section>
-    <footer></footer>
+    <footer id="footer">
+        <div class="container_footer">
+            <section>
+                <article class="footer__links">
+                    <h4 class="links_title">menu links</h4>
+                    <p class="footer_line">━━━━</p>
+                    <ul class="links_list">
+                        <li class="list_option">home</li>
+                        <li class="list_option">about</li>
+                        <li class="list_option">menu</li>
+                        <li class="list_option">service</li>
+                        <li class="list_option">contact</li>
+                    </ul>
+                </article>
+            </section>
+            <section>
+                <article class="footer__Oservice">
+                    <h4 class="ourservice_title">our service</h4>
+                    <p class="footer_line">━━━━</p>
+                    <ul class="links_list">
+                        <li class="list_option">web design</li>
+                        <li class="list_option">web development</li>
+                        <li class="list_option">marketing</li>
+                        <li class="list_option">product management</li>
+                        <li class="list_option">graphic design</li>
+                    </ul>
+                </article>
+            </section>
+            <section>
+                <article class="footer__information">
+                    <h4 class="information_title">information</h4>
+                    <p class="footer_line">━━━━</p>
+                    <ul class="links_list">
+                        <li class="list_option">about us</li>
+                        <li class="list_option">delivery information</li>
+                        <li class="list_option">privacy policy</li>
+                        <li class="list_option">terms & conditions</li>
+                    </ul>
+                </article>
+                </article>
+            </section>
+            <section>
+                <article class="footer__contact">
+                    <h4 class="contact_title">contact us</h4>
+                    <p class="footer_line">━━━━</p>
+                    <ul class="icons_list">
+                        <li class="list_icons"><i class='bx bxl-facebook-circle'></i></li>
+                        <li class="list_icons"><i class='bx bxl-instagram'></i></li>
+                        <li class="list_icons"><i class='bx bxl-twitter' ></i></li>
+                        <li class="list_icons"><i class='bx bxs-phone' ></i></li>
+                    </ul>
+                </article>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>
