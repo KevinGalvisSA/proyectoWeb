@@ -121,8 +121,8 @@ grid-area: titulo;
     /*background: darkgray;*/
     width: 98%;
     height: 100%;
+    padding: 0vh 7vh;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
