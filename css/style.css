@@ -1,0 +1,92 @@
+@import url(variables.css);
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: var(--color-background);
+    width: 100%;
+    height: 100vh;
+}
+
+.grid{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+    "header main main main" 
+    "footer main main main"
+    ;
+}
+
+.container_header{
+    background: yellow;
+    grid-area: header;
+}
+
+.header_box{
+    background: red;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header_title{
+    /*background: violet;*/
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5vh;
+}
+
+.header_list{
+    /*background: tan;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ul_list{
+    list-style: none;
+    line-height: 7vh;
+    font-size: 3vh;
+}
+
+.a{
+    text-decoration: none;
+}
+
+.list_objects{
+    word-spacing: .5vh;
+}
+
+.container_main{
+    background: lightblue;
+    grid-area: main;
+}
+
+.container_footer{
+    background: pink;
+    grid-area: footer;
+}
+
+.footer_list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
