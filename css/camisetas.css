@@ -1,0 +1,255 @@
+@import url(variables.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: var(--color-background);
+    width: 100%;
+    height: 100vh;
+}
+
+.grid{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+    "header main main main" 
+    "footer main main main"
+    ;
+}
+
+.container_header{
+    /*background: yellow;*/
+    grid-area: header;
+}
+
+.header_box{
+    /*background: red;*/
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header_title{
+    /*background: violet;*/
+    color: var(--color-letras_productos);
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5vh;
+}
+
+.header_list{
+    /*background: tan;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ul_list{
+    list-style: none;
+    line-height: 7vh;
+    font-size: 3vh;
+}
+
+.a{
+    color: var(--color-letras);
+    text-decoration: none;
+}
+
+.list_objects{
+    word-spacing: .5vh;
+    font-size: 3.2vh;
+}
+
+.container_main{
+    /*background: lightblue;*/
+    grid-area: main;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_box{
+    background: var(--color-back_productos);
+    border-radius: 4vh;
+    width: 95%;
+    height: 90%;
+    overflow: auto;
+}
+
+.main__header{
+    background: var(--color-back_productos);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding: 0vh 5vh;
+}
+
+.main__title{
+    color: var(--color-letras_productos);
+    font-size: 3vh;
+    text-transform: capitalize;
+}
+
+.contenedor{
+    background: var(--color-back_productos);
+    width: 100%;
+    height: 40%;
+    padding: 0vh 2.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    gap: 5vh;
+}
+
+.container{
+    /*background: darkblue;*/
+    width: 22%;
+}
+
+.prueba{
+    /*background: lightsalmon;*/
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor_img{
+    background: white;
+    border-top-left-radius: 4.5vh;
+    border-top-right-radius: 4.5vh;
+    border-bottom-left-radius: 2vh;
+    border-bottom-right-radius: 2vh;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img1{
+    /*background: yellow;*/
+    width: 110%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contenedor_border{
+    background: var(--color-back_descripcion);
+    border: .5vh solid var(--color-texto);
+    width: 100%;
+    height: 20%;
+    border-radius: 2vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.texto{
+    /*background: darkcyan;*/
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.p1{
+    text-transform: capitalize;
+}
+
+.p1, .p2{
+    color: var(--color-texto);
+    line-height: 1vh;
+    padding: 0vh 2.5vh;
+}
+
+.contenedor_boton{
+    /*background: darkgrey;*/
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 1vh 0vh;
+}
+
+.boton{
+    background: var(--color-boton);
+    color: var(--color-blanco);
+    border: 1px solid var(--color-boton);
+    border-radius: .7vh;
+    width: 60%;
+    height: 50%;
+    text-transform: capitalize;
+}
+
+.container_footer{
+    /*background: pink;*/
+    grid-area: footer;
+}
+
+.footer_list{
+    /*background: yellow;*/
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.footer__ul_list{
+    /*background: darkcyan;*/
+    list-style: none;
+    padding: 0vh 10vh;
+}
+
+.list__footer_objects{
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    font-size: 3.2vh;
+}
+
+.footer__list_p{
+    background: var(--color-back_descripcion);
+    border: 1px solid var(--color-letras);
+    width: 3vh;
+    height: 4vh;
+    text-align: center;
+    font-size: 2.8vh;
+}
+
+.footer_text{
+    /*background: lightgreen;*/
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    padding: 0vh 10vh;
+}
+
+.footer_p{
+    font-size: 2.5vh;
+    text-transform: capitalize;
+}
