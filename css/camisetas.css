@@ -86,6 +86,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .main_box{
@@ -234,7 +235,7 @@ body{
     background: var(--color-back_descripcion);
     border: 1px solid var(--color-letras);
     width: 3vh;
-    height: 4vh;
+    height: 3.5vh;
     text-align: center;
     font-size: 2.8vh;
 }
