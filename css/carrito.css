@@ -86,13 +86,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .main_box{
     background: var(--color-back_productos);
-    border-radius: 4vh;
     width: 95%;
     height: 90%;
+    border-radius: 4vh;
     overflow: auto;
 }
 
@@ -111,10 +112,123 @@ body{
     text-transform: capitalize;
 }
 
+.contenedor_main__mid{
+    /*background: red;*/
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor_main__box1, .contenedor_main__box2, .contenedor_main__box3{
+    background: var(--color-back_descripcion);
+    width: 95%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+}
+
+.mid_img{
+    /*background: yellow;*/
+    width: 17%;
+    height: 100%;
+}
+
+.box_img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.mid_description{
+    /*background: lightblue;*/
+    width: 18%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    line-height: 5vh;
+    text-transform: capitalize;
+    font-size: 2.3vh;
+}
+
+.mid_quantity{
+    /*background: pink;*/
+    width: 18%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    text-transform: capitalize;
+}
+
+.quantity_text{
+    /*background: darkcyan;*/
+    width: 100%;
+    height: 20%;
+    text-transform: capitalize;
+    font-size: 2.3vh;
+}
+
+.quantity_input{
+    /*background: darkgrey;*/
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: end;
+}
+
+.input{
+    width: 80%;
+    height: 80%;
+}
+
+.mid_price{
+    /*background: lightgreen;*/
+    width: 16%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    line-height: 5vh;
+    font-size: 2.3vh;
+    text-transform: capitalize;
+}
+
+.mid_total{
+    /*background: red;*/
+    width: 16%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    line-height: 5vh;
+    font-size: 2.3vh;
+    text-transform: capitalize;
+}
+
+.mid_icon{
+    /*background: darkgoldenrod;*/
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 7vh;
+}
 
 
-
-
+.contenedor_main__bottom{
+    background: var(--color-back_descripcion);
+    width: 95%;
+    height: 17%;
+}
 
 .container_footer{
     /*background: pink;*/
