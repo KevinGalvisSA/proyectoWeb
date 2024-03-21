@@ -55,7 +55,7 @@ body{
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
@@ -70,9 +70,27 @@ body{
     text-decoration: none;
 }
 
-.list_objects{
+.list_objects, .list_objects__p{
     word-spacing: .5vh;
     font-size: 3.2vh;
+}
+
+.list_objects__p{
+    /*background: red;*/
+    width: 40vh;
+    height: 8vh;
+}
+
+.object__selected{
+    background: var(--color-back_descripcion); 
+    width: 100%;
+    height: 80%;
+    border: .5vh solid var(--color-letras);
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    gap: 1vh;
 }
 
 .container_main{
@@ -221,7 +239,8 @@ body{
 .footer__ul_list{
     /*background: darkcyan;*/
     list-style: none;
-    padding: 0vh 10vh;
+    text-transform: capitalize;
+    padding: 0vh 7vh;
 }
 
 .list__footer_objects{
