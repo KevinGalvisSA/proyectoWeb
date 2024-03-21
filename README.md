@@ -9,7 +9,7 @@ En esta documentacion se abarcan los siguientes contenidos:
 
 `Codigos HTML y CSS`
 
-`Variables`
+`Autor`
 
 # Introduccion:
 
