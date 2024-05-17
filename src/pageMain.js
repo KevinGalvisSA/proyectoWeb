@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { allProducts } from "./productos.js";
+import { AllProducts } from "./productos.js";
 
 class myMain extends LitElement {
     constructor(){
@@ -135,10 +135,10 @@ class myMain extends LitElement {
     
     .contenedor-productos {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         gap: 1rem;
     }
-    
+
     .producto-imagen {
         max-width: 100%;
         border-radius: 1rem;
@@ -429,7 +429,7 @@ class myMain extends LitElement {
             <main>
                 <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
                 <div id="contenedor-productos" class="contenedor-productos">
-                <my-products></my-products>
+                    <all-products></all-products>
                 </div>
             </main>
         </div>
