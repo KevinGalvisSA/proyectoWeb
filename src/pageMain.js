@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { AllProducts } from "./productos.js";
+import { redirections } from "./redirecciones.js"; 
 
 class myMain extends LitElement {
     constructor(){
@@ -13,10 +13,6 @@ class myMain extends LitElement {
     
     ul {
         list-style-type: none;
-    }
-    
-    a {
-        text-decoration: none;
     }
     
     .wrapper {
@@ -135,7 +131,7 @@ class myMain extends LitElement {
     
     .contenedor-productos {
         display: grid;
-        grid-template-rows: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 1rem;
     }
 
@@ -416,9 +412,8 @@ class myMain extends LitElement {
                             <button id="pantalones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
                         </li>
                         <li>
-                            <a class="boton-menu boton-carrito" href="./views/carrito.html">
-                                <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
-                            </a>
+                        <li>
+                        <button id="carrito" class="boton-menu boton-carrito"><i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span> </button>
                         </li>
                     </ul>
                 </nav>
@@ -428,8 +423,8 @@ class myMain extends LitElement {
             </aside>
             <main>
                 <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
-                <div id="contenedor-productos" class="contenedor-productos">
-                    <all-products></all-products>
+                <div>
+                    <my-views></my-views>
                 </div>
             </main>
         </div>
@@ -439,3 +434,23 @@ class myMain extends LitElement {
 }
 
 customElements.define("my-main", myMain)
+
+/*
+<ul class="menu">
+    <li>
+        <button id="todos" class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
+    </li>
+    <li>
+        <button id="abrigos" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
+    </li>
+    <li>
+        <button id="camisetas" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
+    </li>
+    <li>
+        <button id="pantalones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
+    </li>
+    <li>
+        button id"carrito" class="boton-menu boton-carrito"><i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span> </button>
+    </li>
+</ul>
+*/
