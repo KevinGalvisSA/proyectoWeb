@@ -1,4 +1,5 @@
-import { LitElement, html, css } from "lit"; 
+import { LitElement, html, css } from "lit";
+import { allProducts } from "./productos.js";
 
 class myMain extends LitElement {
     constructor(){
@@ -330,7 +331,7 @@ class myMain extends LitElement {
         .contenedor-productos {
             grid-template-columns: 1fr 1fr;
         }
-    
+
         .header-mobile {
             padding: 1rem;
             display: flex;
@@ -428,7 +429,7 @@ class myMain extends LitElement {
             <main>
                 <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
                 <div id="contenedor-productos" class="contenedor-productos">
-                    <!-- Esto se va a rellenar con JS -->
+                <my-products></my-products>
                 </div>
             </main>
         </div>
