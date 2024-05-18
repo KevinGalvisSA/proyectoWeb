@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
-import { AllProducts } from "./todosLosProductos.js";
+import { abrigos } from "./consultas.js";
 import { myMenu } from "./menus.js"; 
 
-class myMain extends LitElement {
+class MyPageAbrigos extends LitElement {
     constructor(){
         super();
     }
@@ -380,40 +380,39 @@ class myMain extends LitElement {
     `
     render() {
         return html`
-        <div class="wrapper">
-            <header class="header-mobile">
-                <h1 class="logo">CarpiShop</h1>
-                <button class="open-menu" id="open-menu">
-                    <i class="bi bi-list"></i>
-                </button>
-            </header>
-            <aside>
-                <button class="close-menu" id="close-menu">
-                    <i class="bi bi-x"></i>
-                </button>
-                <header>
+            <div class="wrapper">
+                <header class="header-mobile">
                     <h1 class="logo">CarpiShop</h1>
+                    <button class="open-menu" id="open-menu">
+                        <i class="bi bi-list"></i>
+                    </button>
                 </header>
-                <nav>
-                    <my-menu></my-menu>
-                </nav>
-                <footer>
-                    <p class="texto-footer">© 2022 Carpi Coder</p>
-                </footer>
-            </aside>
-            <main>
-                <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
-                <div class="contenedor-productos">
-                    <all-products></all-products>
-                </div>
-            </main>
-        </div>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-        `
+                <aside>
+                    <button class="close-menu" id="close-menu">
+                        <i class="bi bi-x"></i>
+                    </button>
+                    <header>
+                        <h1 class="logo">CarpiShop</h1>
+                    </header>
+                    <nav>
+                        <my-menu></my-menu>
+                    </nav>
+                    <footer>
+                        <p class="texto-footer">© 2022 Carpi Coder</p>
+                    </footer>
+                </aside>
+                <main>
+                    <h2 class="titulo-principal" id="titulo-principal">Abrigos</h2>
+                    <div class="contenedor-productos">
+                        <get-abrigos></get-abrigos>
+                    </div>
+                </main>
+            </div>
+        `;
     }
 }
 
-customElements.define("my-main", myMain)
+customElements.define('my-page-abrigos', MyPageAbrigos);
 
 /*
 <ul class="menu">
@@ -434,3 +433,178 @@ customElements.define("my-main", myMain)
     </li>
 </ul>
 */
+
+export class myAbrigos extends LitElement {
+    static properties = {
+        products: { type: Array }
+    };
+
+    static styles = css`
+    .contenedor{
+        background: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .container{
+        /*background: darkblue;*/
+        width: 30vh;
+        height: 45vh;
+        margin: 10px;
+        border-top-left-radius: 3rem;
+        border-top-right-radius: 3rem;
+    }
+    
+    .prueba{
+        /*background: lightsalmon;*/
+        width: 100%;
+        height: 100%;
+    }
+    
+    .contenedor_img{
+        background: white;
+        width: 100%;
+        height: 60%;
+        border-top-left-radius: 3rem;
+        border-top-right-radius: 3rem;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .img1{
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 3rem;
+        border-top-right-radius: 3rem;
+        border-bottom-right-radius: 3rem;
+        border-bottom-left-radius: 3rem;
+        object-fit: contain;
+    }
+    
+    .contenedor_border{
+        background: var(--clr-main);
+        border: 2px solid black;
+        width: 99%;
+        height: 29%;
+        border-radius: 1vh;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .texto{
+        background: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .p1{
+        /*background: black;*/
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        word-spacing: 0.1rem;
+        text-transform: capitalize;
+        font-size: 0.9rem;
+    }
+    
+    .p1, .p2{
+        color: white;
+    }
+    
+    .contenedor_boton{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .boton{
+        background: var(--clr-white);
+        color: var(--clr-main);
+        border: 1px solid var(--clr-main);
+        border-radius: .7vh;
+        width: 100%;
+        height: 20%;
+        text-transform: capitalize;
+    }
+    `;
+
+    constructor() {
+        super();
+        this.products = [];
+    }
+
+    async connectedCallback() {
+        super.connectedCallback();
+        this.products = await abrigos();
+    }
+
+    render() {
+        return html`
+        <section class="contenedor">
+            ${this.products.map(product => html`
+                <section class="container">
+                    <article class="prueba">
+                        <article class="contenedor_img">
+                        <img src="${product.image}" class="img1">
+                        </article>
+                        <article class="contenedor_border">
+                            <article class="texto">
+                                <p class="p1">${product.name}</p>
+                                <p class="p2">$${product.price}</p>
+                            </article>
+                            <article class="contenedor_boton">
+                                <button class="boton">agregar</button>
+                            </article>
+                        </article>
+                    </article>
+                </section>
+                </section>
+            `)}
+        `;
+    }
+}
+
+customElements.define("my-abrigos", myAbrigos);
+
+export class getAbrigos extends LitElement {
+    static properties = {
+        products: { type: Array }
+    };
+
+    static styles = css`
+        .flex_container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+    `;
+
+    constructor() {
+        super();
+        this.products = [];
+    }
+
+    render() {
+        return html`
+            <section class="flex_container">
+                <my-abrigos></my-abrigos>
+            </section>
+        `
+    }
+}
+
+customElements.define("get-abrigos", getAbrigos);
