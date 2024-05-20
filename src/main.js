@@ -232,6 +232,11 @@ class MyBodyComponent extends LitElement {
     `;
   }
   
+  constructor() {
+    super();
+    this.numProductosEnCarrito = 0;
+  }
+
   render() {
     return html`
       <head>
@@ -251,32 +256,32 @@ class MyBodyComponent extends LitElement {
             <li class="div2_ul_li" id="todosProductos">
               <button id="btnTodosProductos">
                 <i
-                  class="bx bx-menu-alt-left"
-                ></i>
-                <p class="div2_ul_li_p">Todos los productos</p>
+                  class='bx bx-closet'>
+                </i>
+                  <p class="div2_ul_li_p">Todos los productos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="abrigos">
               <button id="btnAbrigos">
-                <i
-                  class="bx bx-chevrons-left"
-                ></i>
+                <i 
+                  class='bx bxs-thermometer'>
+                </i>
                 <p class="div2_ul_li_p">Abrigos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="camisetas">
               <button id="btnCamisetas">
-                <i
-                  class="bx bx-chevrons-left"
-                ></i>
-                <p class="div2_ul_li_p">Camisetas</p>
-              </button>
+                <i 
+                class='bx bxs-t-shirt'>
+                </i>
+                  <p class="div2_ul_li_p">Camisetas</p>
+                </button>
             </li>
             <li class="div2_ul_li" id="pantalones">
               <button id="btnPantalones">
-                <i
-                  class="bx bx-chevrons-left"
-                ></i>
+                <i 
+                  class='bx bxs-arch'>
+                  </i>
                 <p class="div2_ul_li_p">Pantalones</p>
               </button>
             </li>
@@ -301,7 +306,7 @@ class MyBodyComponent extends LitElement {
       </div>
     `;
   }
- 
+
   static get properties() {
     return {
       numProductosEnCarrito: { type: Number }
@@ -337,11 +342,6 @@ class MyBodyComponent extends LitElement {
       });
     });
   }
-  
-  
-  
-  
-  
 }
 
 customElements.define("my-main", MyBodyComponent);
@@ -350,7 +350,8 @@ export async function actualizarCantidadProductosEnCarrito() {
   try {
     const response = await fetch('http://localhost:5501/carrito');
     const carrito = await response.json();
-    this.numProductosEnCarrito=carrito.length 
+    this.numProductosEnCarrito=carrito.id.length
+    return this.numProductosEnCarrito;
   } catch (error) {
     console.error('Error al obtener el carrito:', error);
   }
