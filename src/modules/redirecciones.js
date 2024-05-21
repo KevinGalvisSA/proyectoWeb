@@ -8,32 +8,32 @@ import "./carrito.js"
 class MiComponente extends LitElement {
   static get properties() {
     return {
-      opcionSeleccionada: { type: String }
+      opcionNav: { type: String }
     };
   }
 
   constructor() {
     super();
-    this.opcionSeleccionada = '';
+    this.opcionNav = '';
   }
 
   render() {
     return html`
       <div class="contenido">
-        ${this.opcionSeleccionada === 'todos los productos'
-          ? html`<my-products></my-products>`
+        ${this.opcionNav === 'todos los productos'
+          ? html`<my-productos></my-productos>`
           : ''}
-        ${this.opcionSeleccionada === 'abrigos'
-          ? html`<my-coats></my-coats>`
+        ${this.opcionNav === 'abrigos'
+          ? html`<my-abrigos></my-abrigos>`
           : ''}
-        ${this.opcionSeleccionada === 'camisetas'
-          ? html`<my-shirts></my-shirts>`
+        ${this.opcionNav === 'camisetas'
+          ? html`<my-camisetas></my-camisetas>`
           : ''}
-        ${this.opcionSeleccionada === 'pantalones'
-          ? html`<my-pants></my-pants>`
+        ${this.opcionNav === 'pantalones'
+          ? html`<my-pantalones></my-pantalones>`
           : ''}
-        ${this.opcionSeleccionada === 'carrito'
-          ? html`<my-cart></my-cart>`
+        ${this.opcionNav === 'carrito'
+          ? html`<my-carrito></my-carrito>`
           : ''}
       </div>
     `;

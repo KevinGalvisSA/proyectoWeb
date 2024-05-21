@@ -8,7 +8,7 @@ class ToggleMenu extends LitElement {
       margin: 4em 1em 1em 0.5em;
       width: var(--width);
       height: var(--height);
-      background: green;
+      background: var(--color-quinto);
       position: relative;
       text-align: center;
       border-radius: 0.5em;
@@ -38,7 +38,7 @@ class ToggleMenu extends LitElement {
     .text:hover {
       cursor: pointer;
       color: var(--color-secundario);
-      background: var(--color-sexto);
+      background: var(--color-cuarto);
       border-radius: 0.5em;
     }
 

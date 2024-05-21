@@ -75,7 +75,7 @@ class MyBodyComponent extends LitElement {
         color: var(--color-primario);
       }
       .opcion-seleccionada {
-        background: var(--color-sexto);
+        background: var(--color-cuarto);
       }
       .div3 {
         grid-area: carrito;
@@ -92,7 +92,7 @@ class MyBodyComponent extends LitElement {
         font-size: 1.5em;
       }
       .div3_1_3 {
-        background: var(--color-sexto);
+        background: var(--color-cuarto);
         width: 8%;
         border: 3px solid var(--color-primario);
         border-radius: 5px;
@@ -110,12 +110,12 @@ class MyBodyComponent extends LitElement {
         font-size: 1.5em;
       }
       .div5 {
-        width: 100%;
-        height:100%;
+        width: 99%;
+        height: 98%;
+        margin-top: .5em;
         grid-area: img;
-        background: var(--color-sexto);
+        background: var(--color-cuarto);
         border-radius: 3em;
-        box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
       }
       .div5_p {
         width: 100%;
@@ -147,14 +147,19 @@ class MyBodyComponent extends LitElement {
         }
         .div2 nav{
           display: none;
-          background: var(--color-sexto);
+          background: var(--color-cuarto);
           border: 1px solid var(--color-terciario);
         }
         #toggleMenu{
           display: block;
           font-size: 1em;
-          width: 3em;
-          background: var(--color-sexto);
+          width: 100%;
+          /*background: var(--color-menu);*/
+          text-shadow: 
+          0 0 20px #DD761C, 
+          0 0 25px #DD761C, 
+          0 0 30px #DD761C, 
+          0 0 35px #DD761C;
         }
         .div2_ul {
           padding-top: 0em;
@@ -196,7 +201,7 @@ class MyBodyComponent extends LitElement {
           font-size: .8em;
         }
         .div3_1_3 {
-          background: var(--color-sexto);
+          background: var(--color-cuarto);
           width: 5%;
           border: 3px solid var(--color-primario);
           border-radius: 5px;
@@ -307,7 +312,7 @@ class MyBodyComponent extends LitElement {
     try {
       const response = await fetch('http://localhost:5501/carrito');
       const carrito = await response.json();
-      this.numProductosEnCarrito = carrito.length;
+      this.numProductosEnCarrito = carrito.reduce((total, producto) => total + producto.cantidad, 0);
       this.requestUpdate();
     } catch (error) {
       console.error('Error al obtener el carrito:', error);
@@ -331,7 +336,7 @@ class MyBodyComponent extends LitElement {
       const updateSelectedOption = (opcion) => {
         botonesDiv2.forEach(btn => btn.classList.remove('opcion-seleccionada'));
         opcion.classList.add('opcion-seleccionada');
-        miComponente.opcionSeleccionada = opcion.querySelector('p').textContent.toLowerCase();
+        miComponente.opcionNav = opcion.querySelector('p').textContent.toLowerCase();
   
         const textoOpcion = opcion.querySelector('p').textContent;
         const textoFormateado = textoOpcion.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());

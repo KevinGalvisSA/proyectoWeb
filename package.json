@@ -10,6 +10,7 @@
     "data": "json-server src/db/e-commerce.json -p 5501"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "json-server": "^1.0.0-beta.0",
     "lit": "^3.1.2",
     "sweetalert2": "^11.11.0"

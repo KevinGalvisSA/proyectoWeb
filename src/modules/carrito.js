@@ -1,7 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { getCombinedData } from './consultas.js';
-import './informacionProducto.js';
+import './informacionProductoPedido.js';
 import Swal from 'sweetalert2';
+import 'animate.css';
 
 class MyElement extends LitElement {
   static styles = css`
@@ -33,17 +34,18 @@ class MyElement extends LitElement {
       align-items: center;
       justify-content: center;
     }
-    .vaciarCarrito_2 p,
     .vaciarCarrito_1 p {
       font-size: 1.5em;
     }
-    .vaciarCarrito_2 {
+
+    .comprarCarrito {
       width: 40%;
       height: 5em;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     button {
       appearance: auto;
       text-rendering: auto;
@@ -107,7 +109,7 @@ class MyElement extends LitElement {
       .vaciarCarrito_1 p {
         font-size: 1em;
       }
-      .vaciarCarrito_2 {
+      .comprarCarrito {
         width: 40%;
         height: 20%;
         display: flex;
@@ -199,6 +201,33 @@ class MyElement extends LitElement {
     }
   }
 
+  async compraCompletada() {
+    try {
+      const response = await fetch('http://localhost:5501/carrito');
+      const carrito = await response.json();
+
+      await Promise.all(
+        carrito.map(item =>
+          fetch(`http://localhost:5501/carrito/${item.id}`, {
+            method: 'DELETE'
+          })
+        )
+      );
+      this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
+      await this.loadProducts();
+
+      // Mostrar mensaje de éxito
+      Swal.fire({
+        title:"Comprado!",
+        text: "Tu compra ha sido todo un exito.",
+        icon: "success"
+      });
+    } catch (error) {
+      console.error('Error al vaciar el carrito', error);
+    }
+  }
+
+
   async eliminarProducto(id) { 
     try {
       console.log(`Eliminando producto con ID: ${id}`);
@@ -264,8 +293,8 @@ class MyElement extends LitElement {
   confirmarVaciarCarrito() {
     Swal.fire({
       title: "Estas seguro?",
-      text: "Una vez hecho, esta acción no se podra revertir",
-      icon: "Alerta",
+      text: "Una vez hecho, esta acción no se podrá revertir",
+      icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "var(--color-accept)",
       cancelButtonColor: "var(--color-cancel)",
@@ -278,13 +307,29 @@ class MyElement extends LitElement {
     });
   }
 
+  handleComprar() {
+    Swal.fire({
+      title: "Analizando compra <i class='bx bx-loader' style='margin-top: .5em'></i>",
+      showClass: {
+        popup: 'animate__animated animate__fadeInUp animate__faster'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutDown animate__faster'
+      }
+    }) .then((result) => {
+      if (result.isConfirmed) {
+        this.compraCompletada();
+      }
+    });
+  }
+
   render() {
     return html`
       <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
       <div class="product-list" @delete-product="${this.handleDeleteProduct}">
         ${this.products.map(
           (product) => html`
-            <product-card2
+            <my-infodepedido
               imgSrc="${product.imagen}"
               productName="${product.nombre}"
               cuantity="${product.cantidad}"
@@ -292,7 +337,7 @@ class MyElement extends LitElement {
               subtotal="${product.subtotal}"
               productId="${product.productId}" 
               type="${product.type}" 
-            ></product-card2>
+            ></my-infodepedido>
           `
         )}
       </div>
@@ -305,8 +350,8 @@ class MyElement extends LitElement {
             Total<br>
             $ ${this.getTotal()}
           </p>
-          <button class="vaciarCarrito_2">
-            <p>Comprar Ahora</p>
+          <button class="comprarCarrito" @click="${this.handleComprar}">
+            <p style="font-size: 1.5em;">Comprar</p>
           </button>
         </div>
       </div>
@@ -314,4 +359,4 @@ class MyElement extends LitElement {
   }
 }
 
-customElements.define("my-cart", MyElement);
+customElements.define("my-carrito", MyElement);

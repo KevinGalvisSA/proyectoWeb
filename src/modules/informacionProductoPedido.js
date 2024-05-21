@@ -1,11 +1,11 @@
 import { LitElement, html, css } from "lit";
 
-class ProductCard extends LitElement {
+class infoPedidos extends LitElement {
   static styles = css`
     :host {
       width: 95%;
       height: 21vh;
-      background: var(--color-sexto);
+      background: var(--color-cuarto);
       border-radius: 3em;
     }
     .div5_1 {
@@ -177,7 +177,7 @@ class ProductCard extends LitElement {
         </div>
         <div class="div5_1_subtotal">
           Subtotal <br />
-          <div class="nombre">${this.subtotal}</div>
+          <div class="nombre">$ ${this.subtotal}</div>
         </div>
         <button id="btnTrash" class="div5_trash" @click="${this.handleDelete}">
           <i class="bx bx-trash"></i>
@@ -187,4 +187,4 @@ class ProductCard extends LitElement {
   }
 }
 
-customElements.define("product-card2", ProductCard);
+customElements.define("my-infodepedido", infoPedidos);

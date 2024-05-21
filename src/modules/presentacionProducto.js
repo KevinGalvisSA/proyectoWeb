@@ -1,12 +1,12 @@
 import { LitElement, html, css } from 'lit';
 import "./complementoCarritos.js"
 
-class ProductCard extends LitElement {
+class infoProducto extends LitElement {
   static styles = css`
     :host{
       width: 17vw;
       height: 37vh;
-      background: var(--color-sexto);
+      background: var(--color-cuarto);
     }
     .div5_1 {
       width: 100%;
@@ -25,7 +25,7 @@ class ProductCard extends LitElement {
       width: 100%;
       height: 30%;
       background: var(--color-secundario);
-      border: 2px solid var(--color-quinto);
+      border: 2px solid var(--color-tercero);
       display: flex;
       border-radius: 1em;
     }
@@ -109,4 +109,4 @@ class ProductCard extends LitElement {
   }
 }
 
-customElements.define('product-card', ProductCard);
+customElements.define('my-infodeproducto', infoProducto);

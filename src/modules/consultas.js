@@ -1,4 +1,4 @@
-export const getCoats = async () => {
+export const dataAbrigos = async () => {
     try {
       let res = await fetch("http://localhost:5501/abrigo");
       let data = await res.json();
@@ -19,7 +19,7 @@ export const getCoats = async () => {
     }
   };
   
-  export const getShirts = async () => {
+  export const dataCamisetas = async () => {
     try {
       let res = await fetch("http://localhost:5501/camiseta");
       let data = await res.json();
@@ -40,7 +40,7 @@ export const getCoats = async () => {
     }
   };
   
-  export const getPants = async () => {
+  export const dataPantalones = async () => {
     try {    
       let res = await fetch("http://localhost:5501/pantalon");
       let data = await res.json();

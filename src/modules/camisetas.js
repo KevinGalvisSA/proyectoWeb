@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import {
-    getShirts
+    dataCamisetas
 } from "./consultas.js";
 import "./presentacionProducto.js";
 
@@ -51,7 +51,7 @@ class MyElement extends LitElement {
 
   async loadProducts() {
     try {
-      const shirts = await getShirts();
+      const shirts = await dataCamisetas();
       this.products = [...shirts];
     } catch (error) {
       console.error('Error al cargar los productos:', error);
@@ -97,13 +97,13 @@ class MyElement extends LitElement {
       <div class="product-list" @add-to-cart="${this.handleAddToCart}">
         ${this.products.map(
           product => html`
-            <product-card
+            <my-infodeproducto
               imgSrc="${product.imagen}"
               productName="${product.name}"
               price="$ ${product.precio}"
               productId="${String(product.id)}"
               productType="camiseta"
-            ></product-card>
+            ></my-infodeproducto>
           `
         )}
       </div>
@@ -111,4 +111,4 @@ class MyElement extends LitElement {
   }
 }
 
-customElements.define('my-shirts', MyElement);
+customElements.define('my-camisetas', MyElement);
