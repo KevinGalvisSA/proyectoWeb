@@ -7,7 +7,6 @@ class ProductCard extends LitElement {
       height: 21vh;
       background: var(--color-sexto);
       border-radius: 3em;
-      
     }
     .div5_1 {
       width: 100%;
@@ -74,10 +73,55 @@ class ProductCard extends LitElement {
         border-image: none;
     }
     .bx-trash{
+      height:100%;
+      width:100%;
+      font-size: 4.5em;
+      color: var(--color-primario);
+    }
+    @media only screen and (max-width: 800px) {
+      :host{
+        width: 90vw;
+        height: 22vh;
+        
+      }
+      .div5_1 {
+        width: 100%;
+        height:100%;
+        gap: .5em;
+      }
+      .contenedor_imagen {
+        width: 80%;
+        height: 60%;
+      }
+      .contenedor_imagen img {
+        width: 90%;
+        height: 100%;
+      }
+      .nombre{
+        font-size: .8em;
+        line-height: 1;
+      }
+      .precio{
+        font-size: .8em;
+      }
+      .div5_1_nombre,
+      .div5_1_precio,
+      .div5_1_subtotal,
+      .div5_1_cantidad {
+      width: 41%;
+      height: 80%;
+      font-size: .8em;
+      gap: 1em;
+      text-align:center;
+      }
+      button{
+        font-size:.75em;
+      }
+      .bx-trash{
         height:100%;
         width:100%;
-        font-size: 4.5em;
-      color: var(--color-primario);
+        font-size: 4em;
+      }
     }
   `;
 

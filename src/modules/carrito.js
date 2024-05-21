@@ -1,18 +1,18 @@
 import { LitElement, html, css } from "lit";
-import { descripcionObjeto } from "./consultas.js";
-import "./productosCarrito.js";
+import { getCombinedData } from "./consultas.js";
+import "./informacionProducto.js";
 
 class MyElement extends LitElement {
   static styles = css`
     .product-list {
-      width: 90%;
+      width: 100%;
       height: 80%;
       padding: 0 0 0 1.5em;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       flex-wrap: wrap;
       gap: 1.8em;
-      max-height: 80vh;
+      max-height: 70vh;
       overflow-y: scroll;
     }
     .product-list::-webkit-scrollbar {
@@ -39,7 +39,7 @@ class MyElement extends LitElement {
     }
     .vaciarCarrito_2{
       width: 40%;
-      height: 50%;
+      height: 5em;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -48,10 +48,6 @@ class MyElement extends LitElement {
       appearance: auto;
       text-rendering: auto;
       color: var(--color-primario);
-      letter-spacing: normal;
-      word-spacing: normal;
-      line-height: normal;
-      text-transform: none;
       text-indent: 0px;
       text-shadow: none;
       display: inline-block;
@@ -62,8 +58,6 @@ class MyElement extends LitElement {
       background: var(--color-secundario);
       border-radius: 1em;
       margin-right: 1em;
-      padding-block: 0px;
-      padding-inline: 0px;
       border-width: 0px;
       border-style: outset;
       border-color: buttonborder;
@@ -77,7 +71,60 @@ class MyElement extends LitElement {
       gap:10px;
     }
     .total p{
-      font-size:1.5em;
+      font-size:1em;
+    }
+    @media only screen and (max-width: 800px){
+      :host{
+        width: 100%;
+        height: 30%;
+      }
+      .product-list {
+        width: 100%;
+        height: 10%;
+        padding: 0 0 0 1.5em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+        overflow-y: scroll;
+      }
+      .product-list::-webkit-scrollbar {
+        display: none;
+      }
+      .footer{
+        width:100%;
+        height:50%;
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .vaciarCarrito_1{
+        width: 20%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        
+      }
+      .vaciarCarrito_1 p{
+        font-size:1em;
+      }
+      .vaciarCarrito_2{
+        width: 40%;
+        height: 20%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .total{
+        display:flex;
+        width:60%;
+        align-items: center;
+        justify-content: flex-end;
+        gap:10px;
+      }
+      .total p{
+        font-size:1em;
+      }
     }
   `;
 
@@ -88,17 +135,39 @@ class MyElement extends LitElement {
   constructor() {
     super();
     this.products = [];
+    this.pollingInterval = 2000;
   }
 
   async connectedCallback() {
     super.connectedCallback();
     await this.loadProducts();
+    this.startPolling();
+    this.addEventListener('add-to-cart', this.handleAddToCart.bind(this));
+  }
+
+  async disconnectedCallback() {
+    super.disconnectedCallback();
+    this.stopPolling();
+    this.removeEventListener('add-to-cart', this.handleAddToCart.bind(this));
   }
 
   async loadProducts() {
-    const carts = await descripcionObjeto();
+    const carts = await getCombinedData();
     this.products = [...carts];
-    console.log(this.products)
+    this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
+  }
+
+  startPolling() {
+    this.polling = setInterval(async () => {
+      await this.loadProducts();
+    }, this.pollingInterval);
+  }
+
+  stopPolling() {
+    if (this.polling) {
+      clearInterval(this.polling);
+      this.polling = null;
+    }
   }
 
   getTotal() {
@@ -117,7 +186,7 @@ class MyElement extends LitElement {
           })
         )
       );
-
+      this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
       await this.loadProducts();
     } catch (error) {
       console.error('Error al vaciar el carrito', error);
@@ -131,8 +200,8 @@ class MyElement extends LitElement {
         method: 'DELETE'
       });
       if (response.ok) {
-        console.log(`Producto con ID: ${id} eliminado exitosamente`);
         await this.loadProducts();
+        this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
       } else {
         console.error('Error al eliminar el producto', response.statusText);
       }
@@ -141,11 +210,49 @@ class MyElement extends LitElement {
     }
   }
   
-
   handleDeleteProduct(event) {
     const productId = event.detail.id;
-    console.log(`Evento delete-product recibido con ID: ${productId}`);
     this.eliminarProducto(productId);
+  }
+
+  async handleAddToCart(event) {
+    const { productId, productType, productName, price, imgSrc } = event.detail;
+    const existingProductIndex = this.products.findIndex(item => item.productId === productId && item.type === productType);
+  
+    if (existingProductIndex !== -1) {
+      this.products[existingProductIndex].cantidad += 1;
+      this.products[existingProductIndex].subtotal = this.products[existingProductIndex].cantidad * parseFloat(price.replace('$', ''));
+    } else {
+      const newProduct = {
+        id: Date.now().toString(),
+        productId,
+        type: productType,
+        nombre: productName,
+        precio: price,
+        imagen: imgSrc,
+        cantidad: 1,
+        subtotal: parseFloat(price.replace('$', ''))
+      };
+      this.products = [...this.products, newProduct];
+    }
+  
+    console.log("Productos actualizados:", this.products); 
+  
+    await this.saveProducts();
+    this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
+    this.requestUpdate();
+  }
+  
+  async saveProducts() {
+    try {
+      await fetch('http://localhost:5501/carrito', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.products)
+      });
+    } catch (error) {
+      console.error('Error al guardar los productos', error);
+    }
   }
 
   render() {

@@ -75,7 +75,7 @@ class MyBodyComponent extends LitElement {
         color: var(--color-primario);
       }
       .opcion-seleccionada {
-        /*background: var(--color-primario;*/
+        background: var(--color-sexto);
       }
       .div3 {
         grid-area: carrito;
@@ -92,7 +92,7 @@ class MyBodyComponent extends LitElement {
         font-size: 1.5em;
       }
       .div3_1_3 {
-        /*background: var(--color-primario;*/
+        background: var(--color-sexto);
         width: 8%;
         border: 3px solid var(--color-primario);
         border-radius: 5px;
@@ -111,12 +111,11 @@ class MyBodyComponent extends LitElement {
       }
       .div5 {
         width: 100%;
-        height: 95%;
+        height:100%;
         grid-area: img;
         background: var(--color-sexto);
         border-radius: 3em;
-        margin-top: 1em;
-        margin-left: -1em;
+        box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
       }
       .div5_p {
         width: 100%;
@@ -127,22 +126,11 @@ class MyBodyComponent extends LitElement {
         margin-block-start: 0em;
         margin-block-end: 0em;
       }
-      .div5_contenedor {
-        width: 100%;
-        height: 95%;
-        padding: 0 0 0 1.5em;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1.8em;
-        max-height: 80vh;
-        overflow-y: scroll;
-      }
-
       @media only screen and (max-width: 800px) {
-        body {
-          padding: 0.5em;
+        :host {
+          padding: 0.5em 0.5em 0.5em 0.5em;
           grid-template-columns: 1fr;
+          grid-template-rows: .5fr .5fr .5fr 10fr .5fr;
           grid-template-areas:
             "logo"
             "menus"
@@ -150,93 +138,103 @@ class MyBodyComponent extends LitElement {
             "img"
             "derechos";
         }
-        .div2 nav {
+        .div1{
+          display:flex;
+          flex-direction:column;
+        }
+        .div1_h1 {
+          font-size: 1em;
+        }
+        .div2 nav{
           display: none;
+          background: var(--color-sexto);
           border: 1px solid var(--color-terciario);
         }
-        #toggleMenu {
+        #toggleMenu{
           display: block;
-          font-size: 1.5em;
+          font-size: 1em;
           width: 3em;
+          background: var(--color-sexto);
         }
         .div2_ul {
-          padding-top: 1em;
+          padding-top: 0em;
           gap: 0em;
-          margin-top: -1em;
+          margin-top: 0em;
+          background: var(--color-terciario);
         }
-        .div2_ul_li_eleccion,
-        .div2_ul_li {
+        button{
+          height:90%;
+          width:100%;
+          text-indent: 0px;
+          text-shadow: none;
+          text-align: center;
+          cursor: pointer;
+          margin: 0em;
+          padding-block: 0px;
+          padding-inline: 0px;
+          border-width: 0px;
+          display:flex;
+          align-items: center;
+          font-size: .8em;
+          gap:15px;
+          background: var(--color-secundario);
+          color: var(--color-primario);
         }
-        .div2_ul_li_eleccion {
-          background: none;
+        
+        .div3 {
+          grid-area: carrito;
+          height:80%;
         }
         .div3_1 {
-          background: none;
-          padding-top: 2em;
+          font-size: .8em;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 1.5em;
+        }
+        .bxs-cart {
+          font-size: .8em;
+        }
+        .div3_1_3 {
+          background: var(--color-sexto);
+          width: 5%;
+          border: 3px solid var(--color-primario);
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        #btnCarrito{
+          font-size:1.2em;
+        }
+        .opcion-seleccionada {
+          background: var(--color-secundario);
+        }
+        .div4 {
+          width:100%;
+          height:100%;
         }
         .div4_p {
-          padding-top: 2em;
+          padding-top: 0em;
+          margin-block-start: 0em;
+          margin-block-end: 0em;
         }
-        .div5 {
-          width: 95vw;
-          height: 100vh;
-          margin-top: 0.5em;
-          padding: 0;
+        .div5{
+          height:100%;
+          width:100%;
         }
         .div5_p {
-          font-size: 1.5em;
-          padding: 1em 0 1.5em 1em;
-          display: flex;
-        }
-        .div5_contenedor {
-          height: 100%;
-          padding: 0 0 0 1em;
-          gap: 1em;
-          max-height: 75vh;
-          overflow: scroll;
-        }
-        .div5_1 {
-          width: 45%;
-          height: 35vh;
-          gap: 0.2em;
-        }
-        .div5_1 img {
-          width: 50%;
-          height: 30vh;
-        }
-        .div5_1_1 {
           width: 100%;
-          font-size: 0.5em;
+          height: 5%;
+          font-size: 1.5em;
+          padding: 0.8em 0 0em 1em;
           display: flex;
-          align-items: center;
-          line-height: 1.5em;
-        }
-        .div5_1_1_p {
-          width: 55%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          font-size: 1em;
-          margin-left: 1em;
-          line-height: 2em;
-        }
-        .button {
-          --width: 80px;
-          --height: 20px;
-        }
-        .icon svg {
-          width: 14px;
-          height: 14px;
+          margin-block-start: 0em;
+          margin-block-end: 0em;
         }
       }
     `;
-  }
-  
-  constructor() {
-    super();
-    this.numProductosEnCarrito = 0;
-  }
-
+    };
   render() {
     return html`
       <head>
@@ -255,33 +253,25 @@ class MyBodyComponent extends LitElement {
           <ul class="div2_ul">
             <li class="div2_ul_li" id="todosProductos">
               <button id="btnTodosProductos">
-                <i
-                  class='bx bx-closet'>
-                </i>
-                  <p class="div2_ul_li_p">Todos los productos</p>
+                <i class="bx bx-menu-alt-left"></i>
+                <p class="div2_ul_li_p">Todos los productos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="abrigos">
               <button id="btnAbrigos">
-                <i 
-                  class='bx bxs-thermometer'>
-                </i>
+                <i class="bx bx-chevrons-left"></i>
                 <p class="div2_ul_li_p">Abrigos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="camisetas">
               <button id="btnCamisetas">
-                <i 
-                class='bx bxs-t-shirt'>
-                </i>
-                  <p class="div2_ul_li_p">Camisetas</p>
-                </button>
+                <i class="bx bx-chevrons-left"></i>
+                <p class="div2_ul_li_p">Camisetas</p>
+              </button>
             </li>
             <li class="div2_ul_li" id="pantalones">
               <button id="btnPantalones">
-                <i 
-                  class='bx bxs-arch'>
-                  </i>
+                <i class="bx bx-chevrons-left"></i>
                 <p class="div2_ul_li_p">Pantalones</p>
               </button>
             </li>
@@ -291,14 +281,14 @@ class MyBodyComponent extends LitElement {
       <div class="div3">
         <li class="div2_ul_li" id="carrito">
           <button id="btnCarrito">
-          <i class="bx bxs-cart"></i>
+            <i class="bx bxs-cart"></i>
             <p class="div2_ul_li_p">Carrito</p>
             <div class="div3_1_3">${this.numProductosEnCarrito}</div>
           </button>
         </li>
       </div>
       <div class="div4">
-        <p class="div4_p">© 2024</p>
+        <p class="div4_p">© 2024 Camilo Navas</p>
       </div>
       <div class="div5">
         <p class="div5_p"></p>
@@ -312,26 +302,58 @@ class MyBodyComponent extends LitElement {
       numProductosEnCarrito: { type: Number }
     };
   }
+
+  async actualizarCantidadProductosEnCarrito() {
+    try {
+      const response = await fetch('http://localhost:5501/carrito');
+      const carrito = await response.json();
+      this.numProductosEnCarrito = carrito.length;
+      this.requestUpdate();
+    } catch (error) {
+      console.error('Error al obtener el carrito:', error);
+    }
+  }
+
   connectedCallback() {
     super.connectedCallback();
-    
+    this.actualizarCantidadProductosEnCarrito();
+  
+    this.addEventListener('carrito-actualizado', () => {
+      this.actualizarCantidadProductosEnCarrito();
+    });
+  
     this.updateComplete.then(() => {
-      
       const botonesDiv2 = this.shadowRoot.querySelectorAll('.div2_ul_li button');
       const miComponente = this.shadowRoot.querySelector('#miComponente');
+      const menuDiv2 = this.shadowRoot.querySelector('.div2 nav');
+      const toggleMenuButton = this.shadowRoot.querySelector('#toggleMenu');
   
       const updateSelectedOption = (opcion) => {
         botonesDiv2.forEach(btn => btn.classList.remove('opcion-seleccionada'));
         opcion.classList.add('opcion-seleccionada');
         miComponente.opcionSeleccionada = opcion.querySelector('p').textContent.toLowerCase();
-        
+  
         const textoOpcion = opcion.querySelector('p').textContent;
         const textoFormateado = textoOpcion.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
-        
+  
         const div5_p = this.shadowRoot.querySelector('.div5_p');
         div5_p.textContent = textoFormateado;
       };
-      
+  
+      const closeMenu = () => {
+        menuDiv2.style.display = 'none';
+        document.removeEventListener('click', closeMenu);
+      };
+  
+      const toggleMenu = (event) => {
+        event.stopPropagation();
+        const isMenuVisible = menuDiv2.style.display === 'block';
+        menuDiv2.style.display = isMenuVisible ? 'none' : 'block';
+        if (!isMenuVisible) {
+          document.addEventListener('click', closeMenu);
+        }
+      };
+  
       const btnTodosProductos = this.shadowRoot.querySelector('#btnCarrito');
       updateSelectedOption(btnTodosProductos);
   
@@ -340,19 +362,10 @@ class MyBodyComponent extends LitElement {
           updateSelectedOption(boton);
         });
       });
+
+      toggleMenuButton.addEventListener('click', toggleMenu);
     });
   }
 }
 
 customElements.define("my-main", MyBodyComponent);
-
-export async function actualizarCantidadProductosEnCarrito() {
-  try {
-    const response = await fetch('http://localhost:5501/carrito');
-    const carrito = await response.json();
-    this.numProductosEnCarrito=carrito.id.length
-    return this.numProductosEnCarrito;
-  } catch (error) {
-    console.error('Error al obtener el carrito:', error);
-  }
-}

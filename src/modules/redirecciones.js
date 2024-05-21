@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import "./todosLosProductos.js"
+import "./productos.js"
 import "./abrigos.js"
 import "./camisetas.js"
 import "./pantalones.js"
