@@ -253,25 +253,25 @@ class MyBodyComponent extends LitElement {
           <ul class="div2_ul">
             <li class="div2_ul_li" id="todosProductos">
               <button id="btnTodosProductos">
-                <i class="bx bx-menu-alt-left"></i>
+                <i class='bx bx-closet'></i>
                 <p class="div2_ul_li_p">Todos los productos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="abrigos">
               <button id="btnAbrigos">
-                <i class="bx bx-chevrons-left"></i>
+                <i class='bx bxs-thermometer' ></i>
                 <p class="div2_ul_li_p">Abrigos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="camisetas">
               <button id="btnCamisetas">
-                <i class="bx bx-chevrons-left"></i>
+                <i class='bx bxs-t-shirt'></i>
                 <p class="div2_ul_li_p">Camisetas</p>
               </button>
             </li>
             <li class="div2_ul_li" id="pantalones">
               <button id="btnPantalones">
-                <i class="bx bx-chevrons-left"></i>
+                <i class='bx bxs-arch'></i>
                 <p class="div2_ul_li_p">Pantalones</p>
               </button>
             </li>
@@ -288,7 +288,7 @@ class MyBodyComponent extends LitElement {
         </li>
       </div>
       <div class="div4">
-        <p class="div4_p">© 2024 Camilo Navas</p>
+        <p class="div4_p">© 2024 CampusLand</p>
       </div>
       <div class="div5">
         <p class="div5_p"></p>

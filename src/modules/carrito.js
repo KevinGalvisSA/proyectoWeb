@@ -1,6 +1,7 @@
-import { LitElement, html, css } from "lit";
-import { getCombinedData } from "./consultas.js";
-import "./informacionProducto.js";
+import { LitElement, html, css } from 'lit';
+import { getCombinedData } from './consultas.js';
+import './informacionProducto.js';
+import Swal from 'sweetalert2';
 
 class MyElement extends LitElement {
   static styles = css`
@@ -18,31 +19,30 @@ class MyElement extends LitElement {
     .product-list::-webkit-scrollbar {
       display: none;
     }
-    .footer{
-      width:100%;
-      height:10vh;
-      display:flex;
+    .footer {
+      width: 100%;
+      height: 10vh;
+      display: flex;
       justify-content: space-around;
       align-items: center;
     }
-    .vaciarCarrito_1{
+    .vaciarCarrito_1 {
       width: 15%;
       height: 70%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .vaciarCarrito_2 p,
-    .vaciarCarrito_1 p{
-      font-size:1.5em;
+    .vaciarCarrito_1 p {
+      font-size: 1.5em;
     }
-    .vaciarCarrito_2{
+    .vaciarCarrito_2 {
       width: 40%;
       height: 5em;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     button {
       appearance: auto;
@@ -63,18 +63,18 @@ class MyElement extends LitElement {
       border-color: buttonborder;
       border-image: none;
     }
-    .total{
-      display:flex;
-      width:37%;
+    .total {
+      display: flex;
+      width: 37%;
       align-items: center;
       justify-content: flex-end;
-      gap:10px;
+      gap: 10px;
     }
-    .total p{
-      font-size:1em;
+    .total p {
+      font-size: 1em;
     }
-    @media only screen and (max-width: 800px){
-      :host{
+    @media only screen and (max-width: 800px) {
+      :host {
         width: 100%;
         height: 30%;
       }
@@ -91,39 +91,38 @@ class MyElement extends LitElement {
       .product-list::-webkit-scrollbar {
         display: none;
       }
-      .footer{
-        width:100%;
-        height:50%;
-        display:flex;
+      .footer {
+        width: 100%;
+        height: 50%;
+        display: flex;
         justify-content: space-around;
         align-items: center;
       }
-      .vaciarCarrito_1{
+      .vaciarCarrito_1 {
         width: 20%;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      .vaciarCarrito_1 p{
-        font-size:1em;
+      .vaciarCarrito_1 p {
+        font-size: 1em;
       }
-      .vaciarCarrito_2{
+      .vaciarCarrito_2 {
         width: 40%;
         height: 20%;
-        display:flex;
-        align-items:center;
-        justify-content:center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      .total{
-        display:flex;
-        width:60%;
+      .total {
+        display: flex;
+        width: 60%;
         align-items: center;
         justify-content: flex-end;
-        gap:10px;
+        gap: 10px;
       }
-      .total p{
-        font-size:1em;
+      .total p {
+        font-size: 1em;
       }
     }
   `;
@@ -188,6 +187,13 @@ class MyElement extends LitElement {
       );
       this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
       await this.loadProducts();
+
+      // Mostrar mensaje de éxito
+      Swal.fire({
+        title: "Vaciado!",
+        text: "Tu carrito ha sido vaciado.",
+        icon: "success"
+      });
     } catch (error) {
       console.error('Error al vaciar el carrito', error);
     }
@@ -209,7 +215,7 @@ class MyElement extends LitElement {
       console.error('Error al eliminar el producto', error);
     }
   }
-  
+
   handleDeleteProduct(event) {
     const productId = event.detail.id;
     this.eliminarProducto(productId);
@@ -218,7 +224,7 @@ class MyElement extends LitElement {
   async handleAddToCart(event) {
     const { productId, productType, productName, price, imgSrc } = event.detail;
     const existingProductIndex = this.products.findIndex(item => item.productId === productId && item.type === productType);
-  
+
     if (existingProductIndex !== -1) {
       this.products[existingProductIndex].cantidad += 1;
       this.products[existingProductIndex].subtotal = this.products[existingProductIndex].cantidad * parseFloat(price.replace('$', ''));
@@ -235,14 +241,14 @@ class MyElement extends LitElement {
       };
       this.products = [...this.products, newProduct];
     }
-  
-    console.log("Productos actualizados:", this.products); 
-  
+
+    console.log("Productos actualizados:", this.products);
+
     await this.saveProducts();
     this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
     this.requestUpdate();
   }
-  
+
   async saveProducts() {
     try {
       await fetch('http://localhost:5501/carrito', {
@@ -253,6 +259,23 @@ class MyElement extends LitElement {
     } catch (error) {
       console.error('Error al guardar los productos', error);
     }
+  }
+
+  confirmarVaciarCarrito() {
+    Swal.fire({
+      title: "Estas seguro?",
+      text: "Una vez hecho, esta acción no se podra revertir",
+      icon: "Alerta",
+      showCancelButton: true,
+      confirmButtonColor: "var(--color-accept)",
+      cancelButtonColor: "var(--color-cancel)",
+      confirmButtonText: "Si, eliminalo",
+      cancelButtonText: "No, no lo elimines"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.vaciarCarrito();
+      }
+    });
   }
 
   render() {
@@ -274,7 +297,7 @@ class MyElement extends LitElement {
         )}
       </div>
       <div class="footer">
-        <button class="vaciarCarrito_1" @click="${this.vaciarCarrito}">
+        <button class="vaciarCarrito_1" @click="${this.confirmarVaciarCarrito}">
           <p>Vaciar Carrito</p>
         </button>
         <div class="total">
